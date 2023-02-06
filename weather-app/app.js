@@ -23,16 +23,24 @@ const getWeatherStackApiReport = (url) =>{
 
 const getMapboxApiReport = (url) => {
   request(url, function (error, response, body) {
-  
-    console.log('error:', error); // Print the error if one occurred
-    console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-    console.log('body:', typeof body); // Print the HTML for the Google homepage.
-    data = JSON.parse(body);
-    //console.log('data:', data.current);
-    //console.log('data:', typeof data.current);
-    //console.log('Place: '+ data.request.query)
-    //console.log(data.current.weather_descriptions[0] + '. It\'s '+ data.current.temperature + ' degrees out. ' + 'There is a ' + data.current.precip * 100 + '% of chance of rainning out.');
-  
+    const data = JSON.parse(body);
+    const endpoint = url.split("/")[5];
+    //console.log("endpoint", endpoint);
+    console.log('statusCode:', response && response.statusCode); 
+    if (error){
+      console.log("Error", error);
+    }else if ( endpoint != "mapbox.places" && endpoint != "mapbox.places-permanent"){
+      console.log("Endpoint is wrong. Unable to find the location.");
+    }else if (data.features.length === 0){
+      console.log("Search_text is wrong. Unable to find the location.")
+    }else {
+      //console.log('response:', body);
+      latitude = data.features[0].center[0]
+      longitude = data.features[0].center[1]
+      console.log(latitude, longitude);
+      console.log("The place it's "+ data.features[0].text + " and is located at "+ latitude + " latitude and " + longitude + " longitude.")
+     
+    }
   });
 }
 
@@ -42,5 +50,5 @@ const getMapboxApiReport = (url) => {
 // https://api.mapbox.com/geocoding/v5/{endpoint}/{search_text}.json
 // access_token=pk.eyJ1IjoibWF5YW1vIiwiYSI6ImNsNDIwZnEycjRlamgzY2w4bGo1MXM2YXUifQ.v4fSnPvGGy8SjZJLrm2r7A
 
-const mapbox_api_url = "https://api.mapbox.com/geocoding/v5/mapbox.places/s%C3%A3o%20paulo.json?access_token=pk.eyJ1IjoibWF5YW1vIiwiYSI6ImNsNDIwZnEycjRlamgzY2w4bGo1MXM2YXUifQ.v4fSnPvGGy8SjZJLrm2r7A"
+const mapbox_api_url = "https://api.mapbox.com/geocoding/v5/mapbox.places/radsasdiro.json?access_token=pk.eyJ1IjoibWF5YW1vIiwiYSI6ImNsNDIwZnEycjRlamgzY2w4bGo1MXM2YXUifQ.v4fSnPvGGy8SjZJLrm2r7A"
 getMapboxApiReport(mapbox_api_url);
