@@ -1,3 +1,5 @@
+![Weather App](https://p0.pikist.com/photos/407/675/header-banner-sky-cloud-weather-space-cloudscape-air-fluffy.jpg)
+
 <h1 align="center"> Welcome to Nodejs Weather App</h1>
 
 *******************************************************************************
