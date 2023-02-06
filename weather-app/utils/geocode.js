@@ -44,10 +44,17 @@ const getMapboxApiGeocode = (location, callback) => {
       callback("Search_text is wrong. Unable to find the location.", undefined)
     }else {
       //console.log('response:', body);
-      latitude = data.features[0].center[0]
-      longitude = data.features[0].center[1]
+      latitude = data.features[0].center[0];
+      longitude = data.features[0].center[1];
+      location = data.features[0].place_name;
+      const calldata = {
+        latitude: latitude,
+        longitude: longitude,
+        location: location
+      }
       //console.log(latitude, longitude);
-      callback(undefined, "The place it's "+ data.features[0].text + " and is located at "+ latitude + " latitude and " + longitude + " longitude.")
+      const status = "The place it's "+ location + " and is located at "+ latitude + " latitude and " + longitude + " longitude.";
+      callback(undefined, calldata)
     }
   });
 }

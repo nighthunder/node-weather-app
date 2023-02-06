@@ -1,6 +1,6 @@
 const request = require('postman-request');
 
-const getMapboxApiForecast = (latitude, longitude, callback) => {
+const getMapboxApiForecast = (latitude, longitude, location, callback) => {
 
     // getting weather report from specific location from mapbox api
     // docs: https://docs.mapbox.com/api/search/geocoding/
@@ -27,7 +27,7 @@ const getMapboxApiForecast = (latitude, longitude, callback) => {
         latitude = data.features[0].center[0]
         longitude = data.features[0].center[1]
         //console.log(latitude, longitude);
-        callback(undefined, "The place it's "+ data.features[0].text + " and is located at "+ latitude + " latitude and " + longitude + " longitude.")
+        callback(undefined, "The place it's "+ data.features[0].place_name + " and is located at "+ latitude + " latitude and " + longitude + " longitude.")
       }
     });
   }
