@@ -17,7 +17,7 @@ const address = process.argv;
 
 console.log("args", address)
 
-geocode(address, (error, data) =>{
+geocode("Bahia", (error, data) =>{
   console.log("Error: ", error);
   console.log("Data: ", data) 
   if (!error){
