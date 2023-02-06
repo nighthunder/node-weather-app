@@ -1,3 +1,6 @@
 curl "https://api.mapbox.com/search/v1/suggest/Empire%20State%20Building?language=en&limit=1&session_token=[GENERATED-UUID]&proximity=-75.38661,39.82049&country=US&access_token=pk.eyJ1IjoibWF5YW1vIiwiYSI6ImNsNDIwZnEycjRlamgzY2w4bGo1MXM2YXUifQ.v4fSnPvGGy8SjZJLrm2r7A"
 
 curl "https://api.mapbox.com/search/v1/retrieve&access_token=pk.eyJ1IjoibWF5YW1vIiwiYSI6ImNsNDIwZnEycjRlamgzY2w4bGo1MXM2YXUifQ.v4fSnPvGGy8SjZJLrm2r7A"
+
+rm -rf ./nodes_modules
+
