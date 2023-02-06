@@ -13,11 +13,15 @@ forecast("-12.35", 45.87, (error, data) => {
   console.log("Data: ", data)
 });*/
 
-const address = process.argv;
+const address = process.argv[2];
+
+if (!address){
+  console.log("Please provide us a address!");
+}
 
 console.log("args", address)
 
-geocode("Bahia", (error, data) =>{
+geocode("Rio de Janeiro", (error, data) =>{
   console.log("Error: ", error);
   console.log("Data: ", data) 
   if (!error){

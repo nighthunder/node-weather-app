@@ -54,7 +54,7 @@ const getMapboxApiGeocode = (location, callback) => {
       }
       //console.log(latitude, longitude);
       const status = "The place it's "+ location + " and is located at "+ latitude + " latitude and " + longitude + " longitude.";
-      callback(undefined, calldata)
+      callback(undefined, {latitude, longitude, location})
     }
   });
 }
