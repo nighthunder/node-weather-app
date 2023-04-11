@@ -1,0 +1,29 @@
+{
+  "name": "weather-app",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nighthunder/node-weather-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nighthunder/node-weather-app/issues"
+  },
+  "homepage": "https://github.com/nighthunder/node-weather-app#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "http": "0.0.1-security",
+    "nodemon": "^2.0.16",
+    "path": "^0.12.7",
+    "postman-request": "^2.88.1-postman.31"
+  },
+  "devDependencies": {},
+  "keywords": [],
+  "description": ""
+}

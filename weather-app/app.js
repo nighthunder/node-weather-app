@@ -17,18 +17,19 @@ const address = process.argv[2];
 
 if (!address){
   console.log("Please provide us a address!");
+}else{
+  console.log("args", address)
+
+  geocode("Rio de Janeiro", (error, data) =>{
+    console.log("Error: ", error);
+    console.log("Data: ", data) 
+    if (!error){
+      forecast(data.latitude, data.longitude, data.location,(error, data) => {
+        console.log("Error: ", error);
+        console.log("Data: ", data)
+      });
+    }
+
+  })
 }
 
-console.log("args", address)
-
-geocode("Rio de Janeiro", (error, data) =>{
-  console.log("Error: ", error);
-  console.log("Data: ", data) 
-  if (!error){
-    forecast(data.latitude, data.longitude, data.location,(error, data) => {
-      console.log("Error: ", error);
-      console.log("Data: ", data)
-    });
-  }
-
-})
