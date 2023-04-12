@@ -1,6 +1,6 @@
 const request = require('postman-request');
 
-const getMapboxApiForecast = (latitude, longitude, location, callback) => {
+const getMapboxApiForecast = (latitude, longitude, callback) => {
 
     // getting weather report from specific location from mapbox api
     // docs: https://docs.mapbox.com/api/search/geocoding/
@@ -22,6 +22,7 @@ const getMapboxApiForecast = (latitude, longitude, location, callback) => {
         callback("Endpoint is wrong. Unable to find the location.", undefined);
       }else if (data.features.length === 0){
         callback("Search_text is wrong. Unable to find the location.", undefined)
+        // callback(error, "This is stupid");
       }else {
         //console.log('response:', body);
         latitude = data.features[0].center[0]
